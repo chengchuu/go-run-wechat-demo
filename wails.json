@@ -7,7 +7,7 @@
   "frontend:dev:watcher": "npm run dev",
   "frontend:dev:serverUrl": "auto",
   "author": {
-    "name": "后除(Cheng)",
+    "name": "除除 (Cheng)",
     "email": "mazeyqian@gmail.com"
   }
 }
