@@ -159,7 +159,7 @@ export function SwitchAccountSuccess():Promise<string>;
 
 #### 前端实现
 
-修改 [frontend/src/App.tsx](https://github.com/mazeyqian/go-run-wechat-demo/blob/main/frontend/src/App.tsx "frontend/src/App.tsx") 文件，添加相关逻辑：
+修改 [frontend/src/App.tsx](https://github.com/chengchuu/go-run-wechat-demo/blob/main/frontend/src/App.tsx "frontend/src/App.tsx") 文件，添加相关逻辑：
 
 ```typescript
 import {useState} from "react";
@@ -193,7 +193,7 @@ function App() {
 export default App
 ```
 
-并且修改了 CSS 样式文件 [frontend/src/App.css](https://github.com/mazeyqian/go-run-wechat-demo/blob/main/frontend/src/App.css "frontend/src/App.css") 来适配界面：
+并且修改了 CSS 样式文件 [frontend/src/App.css](https://github.com/chengchuu/go-run-wechat-demo/blob/main/frontend/src/App.css "frontend/src/App.css") 来适配界面：
 
 ```css
 .btn {
@@ -271,7 +271,7 @@ create-dmg WeChat.dmg WeChat.app
 
 以上文件可以进入 Releases 页面查看：
 
-<https://github.com/mazeyqian/go-run-wechat-demo/releases/tag/v1.0.0>
+<https://github.com/chengchuu/go-run-wechat-demo/releases/tag/v1.0.0>
 
 ![Releases](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-231424-w600.png)
 
