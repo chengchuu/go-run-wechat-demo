@@ -17,7 +17,7 @@ Wails 的显著优势：
 5. **原生用户界面元素**：Wails 支持使用[系统原生的用户界面元素](https://wails.io/docs/reference/runtime/dialog "系统原生的用户界面元素")，提供一致的用户体验。
 6. **灵活的前端选择**：可以选择开发者熟悉的[任何前端框架](https://wails.io/docs/community/templates "任何前端框架")来开发桌面应用。
 
-![Components of a Wails App](https://blog.mazey.net/wp-content/uploads/2024/02/components-of-wails-w800.png)
+![Components of a Wails App](http://blog.mazey.net/wp-content/uploads/2024/02/components-of-wails-w800.png)
 
 ## 创建一个 Wails 项目
 
@@ -68,7 +68,7 @@ wails init -n go-run-wechat-demo -t react-ts
 
 ### 项目结构
 
-![项目结构](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-210518-w797.png)
+![项目结构](http://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-210518-w797.png)
 
 - **`main.go`** 和 **`app.go`**：Go 应用程序，处理业务逻辑、数据管理和与前端的通信。
 - **`frontend`**：包含前端的所有代码，使用 React、Vue 或你选择的任何其他框架，负责用户界面和与用户的交互。
@@ -82,7 +82,7 @@ wails init -n go-run-wechat-demo -t react-ts
 
 进入项目根目录，输入并执行 `wails dev` 命令，首次执行会安装前后端依赖，执行成功后可以看到默认应用页面。
 
-![默认应用页面](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-213146-w1017.png)
+![默认应用页面](http://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-213146-w1017.png)
 
 并且可以在浏览器调试页面：
 
@@ -224,19 +224,19 @@ export default App
 
 此时界面如图：
 
-![界面](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240213-165617-real-w280.png)
+![界面](http://blog.mazey.net/wp-content/uploads/2024/02/demo-20240213-165617-real-w280.png)
 
 尝试操作 Log In：
 
-![Log In](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240213-171601-login-w280.png)
+![Log In](http://blog.mazey.net/wp-content/uploads/2024/02/demo-20240213-171601-login-w280.png)
 
 尝试操作 Switch Account：
 
-![Switch Account](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-221232-switch-w280.png)
+![Switch Account](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-221232-switch-w280.png)
 
 底部图标：
 
-![底部图标](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-2024-at-225440-w200.png)
+![底部图标](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-2024-at-225440-w200.png)
 
 
 ## 打包应用
@@ -259,7 +259,7 @@ wails build -platform=darwin/amd64
 wails build -platform=windows/amd64
 ```
 
-![打包](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-172715-w569.png)
+![打包](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-172715-w569.png)
 
 使用 [create-dmg](https://github.com/create-dmg/create-dmg "create-dmg") 为 macOS 创建 `.dmg` 文件：
 
@@ -267,14 +267,23 @@ wails build -platform=windows/amd64
 create-dmg WeChat.dmg WeChat.app
 ```
 
-![macOS](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-211048-w300.png)
+![macOS](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-211048-w300.png)
 
 以上文件可以进入 Releases 页面查看：
 
 <https://github.com/chengchuu/go-run-wechat-demo/releases/tag/v1.0.0>
 
-![Releases](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-231424-w600.png)
+![Releases](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-231424-w600.png)
 
 ## 总结
 
 Wails 框架提供了一种简洁而强大的方式，让开发者能够利用 Go 的性能优势和 Web 前端的灵活性，从而能够使用更高效、更轻量级的方法来构建跨平台的桌面应用。
+
+**版权声明**
+
+本文为原创文章，作者保留版权。转载请保留本文完整内容，并以超链接形式注明作者及原文出处。
+
+作者: [除除](https://github.com/chengchuu)
+原文: <http://blog.mazey.net/4499.html>
+
+(完)
