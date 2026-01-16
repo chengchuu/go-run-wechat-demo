@@ -1,3 +1,8 @@
-# Mark NSIS installer files as linguist-generated so they don't affect language stats
+# Mark NSIS installer files as linguist-generated
 build/windows/installer/*.nsi linguist-generated
 build/windows/installer/*.nsh linguist-generated
+
+# Mark Wails generated frontend files as linguist-generated
+frontend/wailsjs/**/*.js linguist-generated
+frontend/wailsjs/**/*.ts linguist-generated
+frontend/**/*.css linguist-generated
