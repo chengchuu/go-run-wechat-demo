@@ -1,0 +1,3 @@
+# Mark NSIS installer files as linguist-generated so they don't affect language stats
+build/windows/installer/*.nsi linguist-generated
+build/windows/installer/*.nsh linguist-generated
