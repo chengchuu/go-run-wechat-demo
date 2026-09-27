@@ -33,9 +33,9 @@ Wails v2 主要优势:
 5. **提供桌面系统交互接口**: 除窗口控制外，Wails 还提供原生菜单、[系统对话框](https://wails.io/docs/reference/runtime/dialog "系统原生的用户界面元素")和剪贴板接口。v2 也提供[系统通知接口](https://v2.wails.io/docs/reference/runtime/notification/)，便于扩展桌面功能。
 6. **保留前端技术选择**: 界面可以沿用 HTML、CSS 和 JavaScript 技术。Wails 提供 React、Vue 和 Svelte 等模板，便于复用已有组件与开发经验。本仓库选择 React 和 TypeScript。
 
-更多信息详见 [Wails v2 功能介绍](https://v2.wails.io/docs/introduction/)和[运行机制](https://v2.wails.io/docs/howdoesitwork/)。
-
 ![Components of a Wails App](https://blog.mazey.net/wp-content/uploads/2024/02/components-of-wails-w800.png)
+
+更多信息详见 [Wails v2 功能介绍](https://v2.wails.io/docs/introduction/)和[运行机制](https://v2.wails.io/docs/howdoesitwork/)。
 
 ## 运行本仓库
 
@@ -52,10 +52,10 @@ Wails v2 主要优势:
 
 ### 安装 Wails
 
-请先安装 Go 和 [Node.js](https://nodejs.org/en "Node.js")，再准备目标系统的原生构建工具。版本要求见上节。
+请先安装 Go 和 [Node.js](https://nodejs.org/en "Node.js")，再准备目标系统的原生构建工具。
 
 ```bash
-go install github.com/wailsapp/wails/v2/cmd/wails@latest
+go install github.com/wailsapp/wails/v2/cmd/wails@v2.15.0
 ```
 
 确保 Go 的可执行文件安装目录位于 `PATH` 中，再验证安装结果:
@@ -89,8 +89,6 @@ wails dev
 
 `wails doctor` 检查原生构建依赖。`wails dev` 启动桌面开发环境，并按 `wails.json` 运行前端安装和开发命令。首次运行需要下载依赖。
 
-运行本仓库会显示仿微信登录界面，无需再次执行 `wails init`。
-
 ## 创建一个 Wails 项目
 
 如果需要从头复现教程，请完成前面的环境准备和 Wails 安装，再创建新项目。
@@ -123,9 +121,9 @@ wails init -n go-run-wechat-demo -t react-ts
 
 ### 进入开发模式
 
-进入项目根目录，输入并执行 `wails dev` 命令，首次执行会安装前后端依赖，执行成功后可以看到默认应用页面。
+在项目根目录执行 `wails dev`，首次运行会安装前后端依赖。
 
-![默认应用页面](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-213146-w1017.png)
+![应用页面](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-213146-w1017.png)
 
 开发模式也提供浏览器调试页面:
 
@@ -310,10 +308,14 @@ wails build -platform=windows/amd64
 
 ![打包](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-172715-w569.png)
 
-使用 [create-dmg](https://github.com/create-dmg/create-dmg "create-dmg") 为 macOS 创建 `.dmg` 文件:
+完成 macOS 构建并安装 [create-dmg](https://github.com/create-dmg/create-dmg "create-dmg") 后，在仓库根目录执行下面的命令。先创建独立的临时目录，再将完整的 `WeChat.app` 复制到该目录。
+
+`create-dmg` 会将源目录中的内容复制到镜像根目录。因此，源目录应包含应用包，不应直接指向应用包。下面的命令将镜像输出到 `build/bin/WeChat.dmg`:
 
 ```bash
-create-dmg WeChat.dmg WeChat.app
+wechat_dmg_source=$(mktemp -d)
+cp -R build/bin/WeChat.app "$wechat_dmg_source/"
+create-dmg build/bin/WeChat.dmg "$wechat_dmg_source"
 ```
 
 ![macOS](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-211048-w300.png)
