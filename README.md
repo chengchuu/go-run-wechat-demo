@@ -7,9 +7,9 @@
 - [前言](#前言)
 - [运行本仓库](#运行本仓库)
   - [环境要求](#环境要求)
+  - [安装 Wails](#安装-wails)
   - [启动应用](#启动应用)
 - [创建一个 Wails 项目](#创建一个-wails-项目)
-  - [安装 Wails](#安装-wails)
   - [创建新项目](#创建新项目)
   - [项目结构](#项目结构)
 - [项目开发: 仿微信登录界面](#项目开发-仿微信登录界面)
@@ -19,8 +19,6 @@
     - [后端实现](#后端实现)
     - [前端实现](#前端实现)
 - [打包应用](#打包应用)
-- [验证修改](#验证修改)
-- [总结](#总结)
 
 ## 前言
 
@@ -52,24 +50,9 @@ Wails v2 主要优势:
 | Node.js   | 22.22.2 |
 | npm       | 10.9.7  |
 
-### 启动应用
-
-进入本仓库根目录执行:
-
-```bash
-wails doctor
-wails dev
-```
-
-`wails doctor` 检查原生构建依赖。`wails dev` 启动桌面开发环境，并按 `wails.json` 运行前端安装和开发命令。首次运行需要下载依赖。
-
-运行本仓库会显示仿微信登录界面，无需再次执行 `wails init`。下节的初始化命令仅用于从模板创建另一个项目。
-
-## 创建一个 Wails 项目
-
-如果需要从头复现教程，请先安装 Go 和 [Node.js](https://nodejs.org/en "Node.js")，再准备目标系统的原生构建工具。版本要求见上节。
-
 ### 安装 Wails
+
+请先安装 Go 和 [Node.js](https://nodejs.org/en "Node.js")，再准备目标系统的原生构建工具。版本要求见上节。
 
 ```bash
 go install github.com/wailsapp/wails/v2/cmd/wails@latest
@@ -95,9 +78,26 @@ wails version
 SUCCESS  Your system is ready for Wails development!
 ```
 
+### 启动应用
+
+完成安装后，进入本仓库根目录执行:
+
+```bash
+wails doctor
+wails dev
+```
+
+`wails doctor` 检查原生构建依赖。`wails dev` 启动桌面开发环境，并按 `wails.json` 运行前端安装和开发命令。首次运行需要下载依赖。
+
+运行本仓库会显示仿微信登录界面，无需再次执行 `wails init`。
+
+## 创建一个 Wails 项目
+
+如果需要从头复现教程，请完成前面的环境准备和 Wails 安装，再创建新项目。
+
 ### 创建新项目
 
-在不包含现有同名目录的位置，使用 [Wails CLI](https://wails.io/docs/reference/cli "Wails CLI") 创建项目。CLI 指命令行工具，下面的命令选择 React TypeScript 模板:
+使用 [Wails CLI](https://wails.io/docs/reference/cli "Wails CLI") 创建项目。CLI 指命令行工具，下面的命令选择 React TypeScript 模板:
 
 ```bash
 wails init -n go-run-wechat-demo -t react-ts
@@ -323,36 +323,6 @@ create-dmg WeChat.dmg WeChat.app
 <https://github.com/chengchuu/go-run-wechat-demo/releases/tag/v1.0.0>
 
 ![Releases](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-231424-w600.png)
-
-## 验证修改
-
-仅检查前端时，在 `frontend/` 中执行:
-
-```bash
-npm install
-npm run build
-```
-
-验证完整应用时，在仓库根目录执行:
-
-```bash
-wails build
-go test ./...
-go vet ./...
-git diff --check
-```
-
-直接执行 Go 编译检查前，需要先生成 `frontend/dist`。当前仓库没有自动化测试用例，前端也没有测试或 lint 脚本；构建通过后仍需手动检查:
-
-1. 窗口显示图片和初始名称"除"。
-2. 点击 **Log In**，显示 `Welcome 除, You are logged in!`。
-3. 点击 **Switch Account**，显示 `You have switched accounts!`。
-
-`frontend/dist`、`node_modules` 和 `build/bin` 均为忽略的生成目录。仓库还忽略 `package-lock.json`，因此前端安装结果未由已提交的 npm 锁文件固定。构建可能更新 `frontend/wailsjs/`，提交前请检查差异。
-
-## 总结
-
-本示例展示了从 React 按钮到 Go 方法的完整调用过程。扩展功能时，请同步检查 Go 方法签名、生成的绑定和前端状态处理，并通过桌面应用验证实际行为。
 
 **版权声明**
 
