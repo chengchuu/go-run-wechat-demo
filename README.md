@@ -26,15 +26,13 @@
 
 [Wails](https://wails.io/ "Wails") 是一个桌面应用开发框架。本项目使用 [Go](https://go.dev/ "Go") 实现后端方法，使用 [React](https://react.dev/ "React") 和 TypeScript 编写界面。Wails 负责窗口管理、资源加载和前后端调用。
 
-本文重点介绍窗口配置、Go 方法绑定和界面状态更新。应用体积、内存占用和执行性能取决于具体实现，本文不提供性能对比。
+Wails v2 主要优势:
 
-以本项目使用的 Wails v2.15.0 为例，主要优势包括:
-
-1. **复用系统渲染引擎**: Wails 使用平台提供的 WebView，无需在应用中捆绑完整浏览器。这有助于控制分发体积，但运行环境仍需具备对应组件。实际体积和资源占用取决于应用实现。
+1. **复用系统渲染引擎**: Wails 使用平台提供的 WebView，无需在应用中捆绑完整浏览器。这有助于控制分发体积，但运行环境仍需具备对应组件。
 2. **复用 Go 后端能力**: 文件处理、网络请求和业务逻辑可以直接使用 Go 及其生态库。界面使用 Web 技术，后端使用 Go，便于沿用已有代码和工具。
 3. **自动生成前后端绑定**: Wails 为绑定的 Go 方法生成 JavaScript 封装和 TypeScript 类型声明。前端可直接发起异步调用，减少手动维护桥接接口的工作。
-4. **集成开发与构建流程**: `wails dev` 支持前端更新和 Go 代码自动重建，也提供浏览器调试入口。`wails build` 串联前端构建、资源嵌入和原生打包。使用前仍需安装目标平台的构建依赖。
-5. **提供桌面系统交互接口**: 除窗口控制外，Wails 还提供原生菜单、[系统对话框](https://wails.io/docs/reference/runtime/dialog "系统原生的用户界面元素")和剪贴板接口。v2.15.0 也提供[系统通知接口](https://v2.wails.io/docs/reference/runtime/notification/)，便于扩展桌面功能。具体能力和权限要求因平台而异，本示例尚未使用通知功能。
+4. **集成开发与构建流程**: `wails dev` 支持前端更新和 Go 代码自动重建，也提供浏览器调试入口。`wails build` 串联前端构建、资源嵌入和原生打包。
+5. **提供桌面系统交互接口**: 除窗口控制外，Wails 还提供原生菜单、[系统对话框](https://wails.io/docs/reference/runtime/dialog "系统原生的用户界面元素")和剪贴板接口。v2 也提供[系统通知接口](https://v2.wails.io/docs/reference/runtime/notification/)，便于扩展桌面功能。
 6. **保留前端技术选择**: 界面可以沿用 HTML、CSS 和 JavaScript 技术。Wails 提供 React、Vue 和 Svelte 等模板，便于复用已有组件与开发经验。本仓库选择 React 和 TypeScript。
 
 更多信息详见 [Wails v2 功能介绍](https://v2.wails.io/docs/introduction/)和[运行机制](https://v2.wails.io/docs/howdoesitwork/)。
@@ -56,7 +54,7 @@
 
 ### 启动应用
 
-安装下一节指定版本的 Wails 命令行工具后，进入本仓库根目录执行:
+进入本仓库根目录执行:
 
 ```bash
 wails doctor
