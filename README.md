@@ -38,7 +38,7 @@ Wails v2 主要优势:
 5. **提供桌面系统交互接口**: 除窗口控制外，Wails 还提供原生菜单、[系统对话框](https://wails.io/docs/reference/runtime/dialog "系统原生的用户界面元素")和剪贴板接口。v2 也提供[系统通知接口](https://v2.wails.io/docs/reference/runtime/notification/)，便于扩展桌面功能。
 6. **保留前端技术选择**: 界面可以沿用 HTML、CSS 和 JavaScript 技术。Wails 提供 React、Vue 和 Svelte 等模板，便于复用已有组件与开发经验。本仓库选择 React 和 TypeScript。
 
-![Components of a Wails App](https://blog.mazey.net/wp-content/uploads/2024/02/components-of-wails-w800.png)
+![Components of a Wails App](http://blog.mazey.net/wp-content/uploads/2024/02/components-of-wails-w800.png)
 
 更多信息详见 [Wails v2 功能介绍](https://v2.wails.io/docs/introduction/)和[运行机制](https://v2.wails.io/docs/howdoesitwork/)。
 
@@ -108,7 +108,7 @@ wails init -n go-run-wechat-demo -t react-ts
 
 ### 项目结构
 
-![项目结构](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-210518-w797.png)
+![项目结构](http://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-210518-w797.png)
 
 - `main.go`: 应用入口，配置窗口、嵌入资源、启动回调和 Go 方法绑定。
 - `app.go`: 定义 `App`，保存启动上下文，并提供两个演示方法。
@@ -128,7 +128,7 @@ wails init -n go-run-wechat-demo -t react-ts
 
 在项目根目录执行 `wails dev`，首次运行会安装前后端依赖。
 
-![应用页面](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-213146-w1017.png)
+![应用页面](http://blog.mazey.net/wp-content/uploads/2024/02/demo-20240212-213146-w1017.png)
 
 开发模式也提供浏览器调试页面:
 
@@ -272,19 +272,19 @@ export default App
 
 此时界面如图:
 
-![界面](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240213-165617-real-w280.png)
+![界面](http://blog.mazey.net/wp-content/uploads/2024/02/demo-20240213-165617-real-w280.png)
 
 尝试操作 Log In:
 
-![Log In](https://blog.mazey.net/wp-content/uploads/2024/02/demo-20240213-171601-login-w280.png)
+![Log In](http://blog.mazey.net/wp-content/uploads/2024/02/demo-20240213-171601-login-w280.png)
 
 尝试操作 Switch Account:
 
-![Switch Account](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-221232-switch-w280.png)
+![Switch Account](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-221232-switch-w280.png)
 
 底部图标:
 
-![底部图标](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-2024-at-225440-w200.png)
+![底部图标](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-2024-at-225440-w200.png)
 
 
 ## 打包应用
@@ -311,7 +311,7 @@ wails build -platform=darwin/amd64
 wails build -platform=windows/amd64
 ```
 
-![打包](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-172715-w569.png)
+![打包](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-172715-w569.png)
 
 完成 macOS 构建并安装 [create-dmg](https://github.com/create-dmg/create-dmg "create-dmg") 后，在仓库根目录执行下面的命令。先创建独立的临时目录，再将完整的 `WeChat.app` 复制到该目录。
 
@@ -323,13 +323,17 @@ cp -R build/bin/WeChat.app "$wechat_dmg_source/"
 create-dmg build/bin/WeChat.dmg "$wechat_dmg_source"
 ```
 
-![macOS](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-211048-w300.png)
+![macOS](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-211048-w300.png)
 
 以上文件可以进入 Releases 页面查看:
 
 <https://github.com/chengchuu/go-run-wechat-demo/releases/tag/v1.0.0>
 
-![Releases](https://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-231424-w600.png)
+![Releases](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-231424-w600.png)
+
+**更新记录**
+
+本文首次编辑于 2024-02-19，最近更新于 2026-09-28。
 
 **版权声明**
 
