@@ -4,21 +4,26 @@
 
 本仓库使用 Wails v2、Go 和 React，演示仿微信登录界面的实现。两个按钮通过 Wails 调用 Go 方法，再将返回结果显示在页面上。项目没有接入微信服务，也不执行身份认证或保存账号。
 
+- [概述](#概述)
 - [前言](#前言)
-- [运行本仓库](#运行本仓库)
+- [运行本项目](#运行本项目)
   - [环境要求](#环境要求)
   - [安装 Wails](#安装-wails)
   - [启动应用](#启动应用)
 - [创建一个 Wails 项目](#创建一个-wails-项目)
   - [创建新项目](#创建新项目)
   - [项目结构](#项目结构)
-- [项目开发: 仿微信登录界面](#项目开发-仿微信登录界面)
+- [项目实战: 仿微信登录界面](#项目实战-仿微信登录界面)
   - [进入开发模式](#进入开发模式)
   - [修改代码](#修改代码)
     - [窗口样式和布局](#窗口样式和布局)
     - [后端实现](#后端实现)
     - [前端实现](#前端实现)
 - [打包应用](#打包应用)
+
+## 概述
+
+本文探讨 Wails 框架的使用，从搭建环境到开发，再到最终的构建打包，本项目源码 GitHub 地址：<https://github.com/chengchuu/go-run-wechat-demo>
 
 ## 前言
 
@@ -37,7 +42,7 @@ Wails v2 主要优势:
 
 更多信息详见 [Wails v2 功能介绍](https://v2.wails.io/docs/introduction/)和[运行机制](https://v2.wails.io/docs/howdoesitwork/)。
 
-## 运行本仓库
+## 运行本项目
 
 ### 环境要求
 
@@ -117,7 +122,7 @@ wails init -n go-run-wechat-demo -t react-ts
 
 启动时，`main()` 创建 `App` 并交给 `wails.Run`。`app.startup` 保存上下文，React 入口随后挂载界面。点击按钮后，生成的封装调用 Go 方法；返回结果通过 Promise 更新页面状态。
 
-## 项目开发: 仿微信登录界面
+## 项目实战: 仿微信登录界面
 
 ### 进入开发模式
 
@@ -332,3 +337,5 @@ create-dmg build/bin/WeChat.dmg "$wechat_dmg_source"
 
 作者: [除除](https://github.com/chengchuu)
 原文: <https://blog.mazey.net/4499.html>
+
+<!-- ID: go-run-wechat-demo/README -->
