@@ -57,13 +57,13 @@ Wails v2 主要优势:
 
 ### 安装 Wails
 
-请先安装 Go 和 [Node.js](https://nodejs.org/en "Node.js")，再准备目标系统的原生构建工具。
+请先安装 Go 和 [Node.js](https://nodejs.org/en "Node.js")，再安装 Wails。
 
 ```bash
 go install github.com/wailsapp/wails/v2/cmd/wails@v2.15.0
 ```
 
-确保 Go 的可执行文件安装目录位于 `PATH` 中，再验证安装结果:
+确保 Go 的可执行文件安装目录位于 `PATH` 中，验证安装结果:
 
 ```bash
 wails version
@@ -136,7 +136,7 @@ wails init -n go-run-wechat-demo -t react-ts
 To develop in the browser and call your bound Go methods from Javascript, navigate to: http://localhost:34115
 ```
 
-前端开发服务器使用 Vite。前端组件修改可触发热更新，以下为日志示例。Go 代码由 Wails 的开发流程重新构建，不应将两者都理解为前端热更新。
+前端开发服务器使用 Vite。前端组件修改可触发热更新，以下为日志示例。Go 代码由 Wails 的开发流程重新构建。
 
 ```plain
 1:42:21 PM [vite] hmr update /src/App.tsx
@@ -313,9 +313,7 @@ wails build -platform=windows/amd64
 
 ![打包](http://blog.mazey.net/wp-content/uploads/2024/02/demo-Screen-Shot-at-172715-w569.png)
 
-完成 macOS 构建并安装 [create-dmg](https://github.com/create-dmg/create-dmg "create-dmg") 后，在仓库根目录执行下面的命令。先创建独立的临时目录，再将完整的 `WeChat.app` 复制到该目录。
-
-`create-dmg` 会将源目录中的内容复制到镜像根目录。因此，源目录应包含应用包，不应直接指向应用包。下面的命令将镜像输出到 `build/bin/WeChat.dmg`:
+完成 macOS 构建并安装 [create-dmg](https://github.com/create-dmg/create-dmg "create-dmg") 后，在仓库根目录执行下面的命令。下面的命令将镜像输出到 `build/bin/WeChat.dmg`:
 
 ```bash
 wechat_dmg_source=$(mktemp -d)
@@ -333,13 +331,17 @@ create-dmg build/bin/WeChat.dmg "$wechat_dmg_source"
 
 **更新记录**
 
-本文首次编辑于 2024-02-19，最近更新于 2026-09-28。
+本文首次编辑于 2024-02-19，最近更新于 2026-09-29。
 
 **版权声明**
 
 本文为原创文章，作者保留版权。转载请保留本文完整内容，并以超链接形式注明作者及原文出处。
 
 作者: [除除](https://github.com/chengchuu)
-原文: <https://blog.mazey.net/4499.html>
+原文: <https://blog.mazey.net/6551.html>
 
 <!-- ID: go-run-wechat-demo/README -->
+
+```plain
+#Go #Wails #WailsV2 #React #TypeScript #DesktopApp #CrossPlatform #GoDevelopment #WebView #FrontendDevelopment #Go开发 #Wails #桌面应用 #跨平台开发 #React开发 #TypeScript #前后端通信 #桌面应用开发 #Go实战 #应用打包
+```
